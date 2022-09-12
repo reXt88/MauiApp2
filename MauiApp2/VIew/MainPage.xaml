@@ -1,64 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp2.MainPage">
+             x:Class="MauiApp2.MainPage"
+             Title="Cars">
 
-    <StackLayout>
-        <Grid ColumnDefinitions="*,*">
-            <ScrollView Grid.Column="0">
-                <CollectionView ItemsSource="{Binding Cars}"
+
+    <Grid ColumnDefinitions="*,*">
+        <ScrollView Grid.Column="0">
+            <CollectionView ItemsSource="{Binding Cars}"
                                 SelectedItem="{Binding SelectedItem}"
                                 SelectionMode="Single">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid RowSpacing="10"
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="10"
                                   VerticalOptions="Center">
-                                <Frame BorderColor="BlueViolet"
+                            <Frame x:Name="f1"
+                                       BorderColor="BlueViolet"
                                        CornerRadius="2"
                                        HasShadow="True"
                                        VerticalOptions="Center"
                                        Margin="10">
-                                    <StackLayout Spacing="10"
+                                <StackLayout Spacing="10"
                                                  Orientation="Horizontal"
                                                  Margin="0">
-                                        <Grid ColumnDefinitions="100,*,*"
+                                    <Grid ColumnDefinitions="100,*,*"
                                               ColumnSpacing="2">
-                                            <Frame CornerRadius="4"
+                                        <Frame CornerRadius="4"
                                                    HeightRequest="50"
                                                    WidthRequest="50"
                                                    Padding="0"
                                                    HorizontalOptions="Start">
-                                                <Image Source="{Binding Image}"
+                                            <Image Source="{Binding Image}"
                                                        Grid.Column="0"
                                                        HeightRequest="50"
                                                        WidthRequest="50"
                                                        />
-                                            </Frame>
-                                            <Label Text="{Binding Brand}"
+                                        </Frame>
+                                        <Label Text="{Binding Brand}"
                                                    FontSize="Medium" 
                                                    Grid.Column="1"
                                                    VerticalOptions="Center"/>
-                                            <Frame BackgroundColor="BlueViolet"
+                                        <!--<Frame BackgroundColor="BlueViolet"
                                                    CornerRadius="3"
                                                    HeightRequest="18"
                                                    HorizontalOptions="Start"
                                                    Padding="0"
                                                    Margin="0,-7,0,0"
                                                    Grid.Column="2">
-                                            </Frame>
-                                        </Grid>
-                                    </StackLayout>
-                                </Frame>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </ScrollView>
-            <ScrollView Grid.Column="1">
-                <Label Text="{Binding Desc}"
+                                            </Frame>-->
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+        <Label Text="{Binding Desc}"
+                   Grid.Column="1"
                        FontSize="Medium"
                        HorizontalTextAlignment="Center"/>
-            </ScrollView>
-        </Grid>
-    </StackLayout>
+        <Button x:Name="b1"
+                    Clicked="b1Clicked"
+                    Grid.Column="1"
+                    Text="Добавить"
+                    HeightRequest="50"
+                    WidthRequest="100"
+                    Margin="0,0,0,0"
+                    HorizontalOptions="End"
+                    VerticalOptions="End"/>
+    </Grid>
 </ContentPage>
