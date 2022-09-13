@@ -8,6 +8,7 @@ namespace MauiApp2.Model
 {
     internal class Car
     {
+
         public int ID { get; set; }
         public string Brand { get; set; }
         public string Description { get; set; }

@@ -6,7 +6,7 @@
     <Grid>
         <Label Grid.Row="0"  
                 Margin="0,0,0,0"
-                Text="Brand:"
+                Text="Брэнд:"
                 FontSize="Large"/>
         <Entry x:Name="BrandEntry"
                Margin="200,10,0,0"
@@ -16,7 +16,7 @@
                VerticalOptions="Start"/>
         <Label Grid.Row="0"  
                 Margin="0,45,0,0"
-                Text="Description:"
+                Text="Описание:"
                 FontSize="Large"/>
         <Entry x:Name="DescriptionEntry"
                Margin="200,55,0,0"
@@ -24,7 +24,7 @@
                WidthRequest="200"
                HorizontalOptions="Start"
                VerticalOptions="Start"/>
-        <Label Grid.Row="0"  
+        <!--<Label Grid.Row="0"  
                 Margin="0,90,0,0"
                 Text="Image:"
                 FontSize="Large"/>
@@ -33,7 +33,7 @@
                HeightRequest="30"
                WidthRequest="200"
                HorizontalOptions="Start"
-               VerticalOptions="Start"/>
+               VerticalOptions="Start"/>-->
         <Button x:Name="SaveButton"
             Clicked="SaveButtonClicked"
             WidthRequest="110"
