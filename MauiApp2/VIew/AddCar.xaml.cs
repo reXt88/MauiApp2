@@ -16,6 +16,7 @@ public partial class AddCar : ContentPage
     public async void SaveButtonClicked(object sender, EventArgs e)
     {
         CarViewModel cvm = new CarViewModel();
+        carService crs = new carService();
         Random random = new Random();
         int a = random.Next(100000);
         var car = new Car()
@@ -28,7 +29,8 @@ public partial class AddCar : ContentPage
         cvm.Cars.Add(car);
         var options = new JsonSerializerOptions { WriteIndented = true };
         string jsonStr = JsonSerializer.Serialize(cvm.Cars, options);
-        File.WriteAllText(@"C:\Users\seva8\source\repos\MauiApp2\MauiApp2\Resources\Raw\Cars.json", jsonStr);
+        string pathToCarsJson = AppDomain.CurrentDomain.BaseDirectory + "Cars.json";
+        File.WriteAllText(pathToCarsJson, jsonStr);
         await Navigation.PopAsync();
     }
 }

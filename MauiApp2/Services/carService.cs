@@ -15,9 +15,10 @@ namespace MauiApp2.Services
         public static List<Car> carlist = new();
         public static async Task<IEnumerable<Car>> GetCar()
         {
+            string pathToCarsJson = AppDomain.CurrentDomain.BaseDirectory + "Cars.json";
             if (carlist?.Count > 0)
                 return carlist;
-            var stream = await File.ReadAllTextAsync("C:\\Users\\seva8\\source\\repos\\MauiApp2\\MauiApp2\\Resources\\Raw\\Cars.json");
+            var stream = await File.ReadAllTextAsync(pathToCarsJson);
             //using var reader = new StreamReader(stream);
             //var contents = await reader.ReadToEndAsync();
             carlist = JsonSerializer.Deserialize<List<Car>>(stream);
