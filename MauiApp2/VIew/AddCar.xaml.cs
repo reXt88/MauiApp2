@@ -13,10 +13,8 @@ public partial class AddCar : ContentPage
 	{
 		InitializeComponent();
     }
-
-
-    public void SaveButtonClicked(object sender, EventArgs e)
-	{
+    public async void SaveButtonClicked(object sender, EventArgs e)
+    {
         CarViewModel cvm = new CarViewModel();
         Random random = new Random();
         int a = random.Next(100000);
@@ -25,11 +23,12 @@ public partial class AddCar : ContentPage
             ID = random.Next(1000000),
             Brand = Convert.ToString(BrandEntry.Text),
             Description = Convert.ToString(DescriptionEntry.Text),
-            Image = "cvbdcf"
+            Image = Convert.ToString(ImageEntry.Text),
         };
         cvm.Cars.Add(car);
         var options = new JsonSerializerOptions { WriteIndented = true };
         string jsonStr = JsonSerializer.Serialize(cvm.Cars, options);
         File.WriteAllText(@"C:\Users\seva8\source\repos\MauiApp2\MauiApp2\Resources\Raw\Cars.json", jsonStr);
+        await Navigation.PopAsync();
     }
 }
